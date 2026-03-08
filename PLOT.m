@@ -1,8 +1,8 @@
 clear all
 close all
 
-load('Sim_Data\results.mat')
-
+% load('Sim_Data/results.mat')
+load('Sim_Data/navonly_results.mat')
 tvec = 0:sim.step:sim.missiontime;
 
 for i = 1:length(tvec)
