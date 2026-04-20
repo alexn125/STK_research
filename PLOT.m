@@ -25,21 +25,21 @@ for i = 1:6
     Pvec(i,:) = sqrt(nav.P_history(i,i,:));
 end
 
-figure;
-t = tiledlayout(4,1);
-title(t,'Truth Attitude, Quaternions')
-nexttile
-plot(tvec,quat_truth(1,1:end-1))
-ylabel('q1')
-nexttile
-plot(tvec,quat_truth(2,1:end-1))
-ylabel('q2')
-nexttile
-plot(tvec,quat_truth(3,1:end-1))
-ylabel('q3')
-nexttile
-plot(tvec,quat_truth(4,1:end-1))
-ylabel('Scalar part')
+% figure;
+% t = tiledlayout(4,1);
+% title(t,'Truth Attitude, Quaternions')
+% nexttile
+% plot(tvec,quat_truth(1,1:end-1))
+% ylabel('q1')
+% nexttile
+% plot(tvec,quat_truth(2,1:end-1))
+% ylabel('q2')
+% nexttile
+% plot(tvec,quat_truth(3,1:end-1))
+% ylabel('q3')
+% nexttile
+% plot(tvec,quat_truth(4,1:end-1))
+% ylabel('Scalar part')
 
 figure
 t = tiledlayout(3,1);
@@ -72,18 +72,18 @@ legend('Estimate','Truth','Location','best')
 hold off
 grid on
 
-figure
-t = tiledlayout(3,1);
-title(t,'Estimated bias')
-nexttile
-plot(tt,bvec(1,:))
-grid on
-nexttile
-plot(tt,bvec(2,:))
-grid on
-nexttile
-plot(tt,bvec(3,:))
-grid on
+% figure
+% t = tiledlayout(3,1);
+% title(t,'Estimated bias')
+% nexttile
+% plot(tt,bvec(1,:))
+% grid on
+% nexttile
+% plot(tt,bvec(2,:))
+% grid on
+% nexttile
+% plot(tt,bvec(3,:))
+% grid on
 
 evec = zeros(3,length(time_vec));
 
@@ -98,14 +98,17 @@ nexttile
 plot(time_vec,evec(1,:))
 hold on
 plot(tt,3*Pvec(1,:),'r',tt,-3*Pvec(1,:),'r')
+xlabel("MRP 1")
+ylabel("Time (s)")
 legend('MRP 1','$+3\sigma$','$-3\sigma$','Interpreter','latex','Location','best');
-legend()
 hold off
 grid on
 nexttile
 plot(time_vec,evec(2,:))
 hold on
 plot(tt,3*Pvec(2,:),'r',tt,-3*Pvec(2,:),'r')
+xlabel("MRP 2")
+ylabel("Time (s)")
 legend('MRP 2','$+3\sigma$','$-3\sigma$','Interpreter','latex','Location','best');
 hold off
 grid on
@@ -113,6 +116,8 @@ nexttile
 plot(time_vec,evec(3,:))
 hold on
 plot(tt,3*Pvec(3,:),'r',tt,-3*Pvec(3,:),'r')
+xlabel("MRP 3")
+ylabel("Time (s)")
 legend('MRP 3','$+3\sigma$','$-3\sigma$','Interpreter','latex','Location','best');
 hold off
 grid on
@@ -122,6 +127,7 @@ t = tiledlayout(3,1);
 title(t,"Truth angular velocity, rad/s")
 nexttile
 plot(tvec,angvel_truth(1,1:end-1))
+xlabel("\")
 grid on
 nexttile
 plot(tvec,angvel_truth(2,1:end-1))
